@@ -6,7 +6,7 @@ A forward proxy server that allows clients to use random and temporary proxies f
 
 ## Quick Start
 
-1. [Download](https://github.com/rpi4gx/ep-proxy-server/releases) and unpack the release for your system.
+1. [Download](https://github.com/rpi4gx/ep-proxy-server/releases) and unpack the latest release for your system.
 
 2. Run it
 ```
@@ -46,11 +46,11 @@ $ go build .
 ```
 3. Run it
 ```
-./ep-proxy-server -mode=rotation -port=9090 -rapidApiKey=<USER'S RAPIDAPI KEY> -type=datacenter
+$ ./ep-proxy-server -mode=rotation -port=9090 -rapidApiKey=<USER'S RAPIDAPI KEY> -type=datacenter
 ```
 4. Test it
 ```
-curl -x localhost:9009 https://ifconfig.co
+$ curl -x localhost:9009 https://ifconfig.co
 ```
 
 ## Support

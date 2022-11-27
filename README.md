@@ -46,7 +46,7 @@ $ go build .
 ```
 3. Run it.
 ```
-$ ./ep-proxy-server -mode=rotation -port=9090 -rapidApiKey=<USER'S RAPIDAPI KEY> -type=datacenter
+$ ./ep-proxy-server -mode=rotational -port=9090 -rapidApiKey=<USER'S RAPIDAPI KEY> -type=datacenter
 ```
 4. Test it.
 ```

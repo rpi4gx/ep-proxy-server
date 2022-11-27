@@ -10,7 +10,7 @@ A forward proxy server that allows clients to use random and temporary proxies f
 
 2. Run it.
 ```
-$ ./ep-proxy-server -mode=rotation -port=9090 -rapidApiKey=<USER'S RAPIDAPI KEY> -type=residential
+$ ./ep-proxy-server -mode=rotational -port=9090 -rapidApiKey=<USER'S RAPIDAPI KEY> -type=residential
 ````
 
 4. Test it.

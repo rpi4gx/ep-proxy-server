@@ -2,3 +2,5 @@ github.com/namsral/flag v1.7.4-pre h1:b2ScHhoCUkbsq0d2C15Mv+VU8bl8hAXV8arnWiOHNZ
 github.com/namsral/flag v1.7.4-pre/go.mod h1:OXldTctbM6SWH1K899kPZcf65KxJiD7MsceFUpB5yDo=
 github.com/rpi4gx/ephemeral-proxies-go v0.0.3 h1:eAPjPZVUGeRjuUrhTNDqIqxjAZ/iyD1ypNReXrfA6co=
 github.com/rpi4gx/ephemeral-proxies-go v0.0.3/go.mod h1:DtX7JvK3hrQ0OC4NX99UFiexZqiJgZuQPW872ZS9nkQ=
+github.com/rpi4gx/ephemeral-proxies-go v0.0.4 h1:vvbt4DOVyFkBxer0W4hU9QalNbIPnjLexeaDPJ+5SZs=
+github.com/rpi4gx/ephemeral-proxies-go v0.0.4/go.mod h1:DtX7JvK3hrQ0OC4NX99UFiexZqiJgZuQPW872ZS9nkQ=

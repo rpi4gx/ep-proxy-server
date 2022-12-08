@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net"
 	"strconv"
 )
@@ -28,15 +27,16 @@ func unidirectionalPipe(a net.Conn, b net.Conn) {
 func handleConnection(pp *proxyPool, serverConn net.Conn) {
 	var host, port, err = pp.getProxyFromPool()
 	if err != nil {
-		fmt.Println(err)
+		log.Error(err)
 		serverConn.Close()
 		return
 	}
 	clientConn, err := net.Dial("tcp", host+":"+strconv.Itoa(port))
 	if err != nil {
-		fmt.Printf("error connecting to proxy %v", err)
+		log.Errorf("error connecting to proxy %v", err)
 		return
 	}
+	log.Debugf("New connection using proxy: %s:%d\n", host, port)
 	go unidirectionalPipe(serverConn, clientConn)
 	go unidirectionalPipe(clientConn, serverConn)
 }
@@ -46,11 +46,11 @@ func serverStart(port int, pp *proxyPool) {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("Listening on port " + strconv.Itoa(port))
+	log.Infof("Listening on port " + strconv.Itoa(port))
 	for {
 		conn, err := ln.Accept()
 		if err != nil {
-			fmt.Printf("%v", err)
+			log.Errorf("%v", err)
 			continue
 		}
 		go handleConnection(pp, conn)

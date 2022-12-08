@@ -2,8 +2,6 @@ package main
 
 import (
 	"errors"
-	"fmt"
-	"os"
 	"strconv"
 	"sync"
 	"time"
@@ -64,12 +62,11 @@ func (pp *proxyPool) populatePool() {
 		errors := 0
 		for pp.getPoolLength() < pp.size {
 			if errors >= 10 {
-				fmt.Println("too many Ephemeral Proxies API failures, exiting ...")
-				os.Exit(-1)
+				log.Panic("too many Ephemeral Proxies API failures, exiting ...")
 			}
 			p, err := ephemeralproxies.NewProxy(pp.rapidApiKey, pp.proxyType)
 			if err != nil {
-				fmt.Println("failure from Ephemeral Proxies API:", err)
+				log.Error("failure from Ephemeral Proxies API:", err)
 				time.Sleep(100 * time.Millisecond)
 				errors++
 				continue
@@ -77,6 +74,7 @@ func (pp *proxyPool) populatePool() {
 			pp.mutex.Lock()
 			pp.pool = append(pp.pool, *p)
 			pp.mutex.Unlock()
+			log.Debugf("New proxy allocated: %s:%d from %s\n", p.Host, p.Port, p.Visibility.Country)
 			time.Sleep(100 * time.Millisecond)
 		}
 	}
